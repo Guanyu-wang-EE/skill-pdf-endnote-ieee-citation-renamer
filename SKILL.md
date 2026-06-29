@@ -5,6 +5,32 @@ description: Use when the user provides academic PDF files and wants EndNote .en
 
 # A Skill to Generate EndNote/IEEE Citations From PDF Documents and Rename Them
 
+## Hard Gates
+
+- Do not invent DOI, title, authors, venue, year, pages, arXiv ID, or IEEE citation fields when metadata is missing.
+- Prefer PDF text and verified metadata sources; report conflicts instead of silently choosing one.
+- Do not rename files destructively until the target naming plan is clear.
+- Do not add .git, .gitignore, README files, or __pycache__ to the live installed skill folder.
+
+## Reference Routing
+
+| Task | Load or run |
+|---|---|
+| Extract or reconcile metadata | Metadata Workflow in this file |
+| Rename PDFs | File Naming in this file |
+| Generate EndNote import | EndNote .enw Fields in this file |
+| Generate IEEE citation | IEEE Citation in this file |
+| Edit or install this skill | Run the commands under Verification |
+
+## Verification
+
+After editing this skill itself, run:
+
+- python C:\Users\Admin\.codex\skills\.system\skill-creator\scripts\quick_validate.py <this skill folder>
+- python C:\Users\Admin\.codex\skills\.system\skill-creator\scripts\audit_skill.py <this skill folder> --strict
+
+For this single-file citation skill, no separate final-gates reference or audit script is required; metadata reconciliation is the final gate.
+
 ## Core Contract
 
 For each user-provided literature PDF, produce two deliverables and manage the source file:
